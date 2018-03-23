@@ -1,4 +1,4 @@
-#Benchmarking C# iterator optimization
+# Benchmarking C# iterator optimization
 
 This is a little experiment to see if we can speed up linq queries.
 
