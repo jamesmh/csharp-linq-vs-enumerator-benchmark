@@ -2,7 +2,7 @@
 
 This is a little experiment to see if we can speed up linq queries.
 
-Using the functional technique to "pipe" linq queries, we can avoid the inherent issue with linq where each query will issue __a whole iteration over the collection__. This optimzation allows us to issue the equivalent of __one iteration__ and pass each element through the entire method chain (like the functioonal "pipe" operation).
+Using a functional technique to "pipe" linq queries, we can avoid the inherent issue with linq where each query will issue __a whole iteration over the collection__. This optimzation allows us to issue the equivalent of __one iteration__ and pass each element through the entire method chain (like the functioonal "pipe" operation).
 
 Benchmarking 3 linq queries proves to be 6X faster in mean execution time.
 
