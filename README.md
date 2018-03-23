@@ -13,7 +13,7 @@ Benchmarking 3 linq queries proves to be 6X faster in mean execution time.
 | Optimized |  17.15 ns | 0.3958 ns | 0.5147 ns |    1 | 0.0229 |      72 B |
 ```
 
-# The Opimization
+# The Optimization
 
 The optimized method used in the benchmarks (only for types returning `null` as their default value) looks like this:
 
