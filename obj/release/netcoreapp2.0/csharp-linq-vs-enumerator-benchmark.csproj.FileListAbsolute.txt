@@ -1,0 +1,10 @@
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\bin\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.deps.json
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\bin\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.runtimeconfig.json
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\bin\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.runtimeconfig.dev.json
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\bin\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.dll
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\bin\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.pdb
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\obj\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.csproj.CoreCompileInputs.cache
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\obj\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.AssemblyInfoInputs.cache
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\obj\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.AssemblyInfo.cs
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\obj\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.dll
+D:\personal\HomesteadCode\csharp-linq-vs-enumerator-benchmark\obj\release\netcoreapp2.0\csharp-linq-vs-enumerator-benchmark.pdb
