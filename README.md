@@ -1,8 +1,8 @@
-# Benchmarking C# enumerator optimization
+# Benchmarking C# enumerator optimisation
 
 This is a little experiment to see if we can speed up linq queries by using the functional `pipe` technique.
 
-By "piping" linq queries, we can avoid the inherent issue with linq whereby each query will issue __a whole iteration over the collection__. This optimization allows us to issue the equivalent of __one iteration__ and pass each element through the entire method chain.
+By "piping" linq queries, we can avoid the inherent issue with linq whereby each query will issue __a whole iteration over the collection__. This optimisation allows us to issue the equivalent of __one iteration__ and pass each element through the entire method chain.
 
 Benchmarking 3 linq queries proves to be 6X faster in mean execution time.
 
@@ -13,7 +13,7 @@ Benchmarking 3 linq queries proves to be 6X faster in mean execution time.
 | Optimized |  17.15 ns | 0.3958 ns | 0.5147 ns |    1 | 0.0229 |      72 B |
 ```
 
-# The Optimization
+# The Optimisation
 
 The optimized method used in the benchmarks (only for types returning `null` as their default value) looks like this:
 
@@ -29,7 +29,7 @@ public static IEnumerable<Tout> OptimizedPipe<T, Tout>(this IEnumerable<T> list,
 }
 ```
 
-You can use this to run only certain linq queries (`Select`, `Where`, `Except`, `Intersect`, `TypeOf`) due to the nature of the optimization.
+You can use this to run only certain linq queries (`Select`, `Where`, `Except`, `Intersect`, `TypeOf`) due to the nature of the optimisation.
 
 Side Note: You can change the method above to handle non-nullable types as well... but let's keep it simple for now :)
 
@@ -104,11 +104,11 @@ But, that's not __really__ correct:
 | TwoSingleValuedListsPiped |  10.72 ns | 0.0659 ns | 0.0550 ns |    1 | 0.0127 |      40 B |
 ```
 
-The next question we need to ask is: Is this a __linq only__ optimization? Or is it something that is really being optimized not by linq but by - probably - the `Enumerator`?
+The next question we need to ask is: Is this a __linq only__ optimisation? Or is it something that is really being optimized not by linq but by - probably - the `Enumerator`?
 
 # Can we optimize a foreach?
 
-To find out, we need to use a non-linq operation (over a collection) with and without the optimization.
+To find out, we need to use a non-linq operation (over a collection) with and without the optimisation.
 
 For this, I created a `Map` function to use for our test operation:
 
