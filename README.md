@@ -1,4 +1,4 @@
-# Benchmarking C# iterator optimization
+# Benchmarking C# enumerator optimization
 
 This is a little experiment to see if we can speed up linq queries by using the functional `pipe` technique.
 
