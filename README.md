@@ -1,8 +1,8 @@
-# Benchmarking C# enumerator optimisation
+# Benchmarking C# enumerator optimization
 
-This is a little experiment to see if we can speed up linq queries by using the functional `pipe` technique.
+This was a little experiment to see if we can speed up linq queries by using the functional `pipe` technique.
 
-By "piping" linq queries, we can avoid the inherent issue with linq whereby each query will issue __a whole iteration over the collection__. This optimisation allows us to issue the equivalent of __one iteration__ and pass each element through the entire method chain.
+By "piping" linq queries, we can avoid the inherent issue with linq whereby each query will issue __a whole iteration over the collection__. This optimization allows us to issue the equivalent of __one iteration__ and pass each element through the entire method chain.
 
 Benchmarking 3 linq queries proves to be 6X faster in mean execution time.
 
@@ -29,7 +29,7 @@ public static IEnumerable<Tout> OptimizedPipe<T, Tout>(this IEnumerable<T> list,
 }
 ```
 
-You can use this to run only certain linq queries (`Select`, `Where`, `Except`, `Intersect`, `TypeOf`) due to the nature of the optimisation.
+You can use this to run only certain linq queries (`Select`, `Where`, `Except`, `Intersect`, `TypeOf`) due to the nature of the optimization.
 
 Side Note: You can change the method above to handle non-nullable types as well... but let's keep it simple for now :)
 
@@ -49,7 +49,7 @@ The equivalent linq queries without the `OptimizedPipe()` is what we are benchma
 
 # What Happened?
 
-By iterating over the collection __once__ and passing each value into the method chain as __a one valued IEnumerable__, there is an optimzation being done under the covers. In other words, the overhead of iterating over a single valued collection is somehow optimized to just avoid the iteration (it seems).
+By iterating over the collection __once__ and passing each value into the method chain as __a one valued IEnumerable__, there is an optimization being done under the covers. In other words, the overhead of iterating over a single-valued collection is somehow optimized to just avoid the iteration (it seems).
 
 # More Proof
 
@@ -93,7 +93,7 @@ They will take the same amount of time - right? Plus, the second case is perform
 
 The first one will iterate two times (Select and Where) over two items in the collection. So, 2 * 2 = 4 iterations.
 
-The second one will iterate 2 times (Select and Where) per collection (each having one value). So, for two collections having one value each, thats 2 * 2 = 4 iterations.
+The second one will iterate 2 times (Select and Where) per collection (each having one value). So, for two collections having one value each, that's 2 * 2 = 4 iterations.
 
 But, that's not __really__ correct:
 
@@ -104,11 +104,11 @@ But, that's not __really__ correct:
 | TwoSingleValuedListsPiped |  10.72 ns | 0.0659 ns | 0.0550 ns |    1 | 0.0127 |      40 B |
 ```
 
-The next question we need to ask is: Is this a __linq only__ optimisation? Or is it something that is really being optimized not by linq but by - probably - the `Enumerator`?
+The next question we need to ask is: Is this a __linq only__ optimization? Or is it something that is really being optimized not by linq but by - probably - the `Enumerator`?
 
 # Can we optimize a foreach?
 
-To find out, we need to use a non-linq operation (over a collection) with and without the optimisation.
+To find out, we need to use a non-linq operation (over a collection) with and without the optimization.
 
 For this, I created a `Map` function to use for our test operation:
 
@@ -155,7 +155,7 @@ Again, it looks like the first benchmkark should be faster. But it's not:
 
 So, there you have it! At run-time, c# optimizes single valued collections so you can pipe them through a chain of functions - each expecting and returning a collection. This seems to be done at a lower level - probably in the `Enumerator` class for the collections. This needs more digging in the source code for dotnetcore...
 
-The performance gain of doing this is significant if chaining multiple methods / operations. 
+The performance gain of doing this is significant if chaining multiple methods/operations. 
 
 What does this mean practically? 
 
