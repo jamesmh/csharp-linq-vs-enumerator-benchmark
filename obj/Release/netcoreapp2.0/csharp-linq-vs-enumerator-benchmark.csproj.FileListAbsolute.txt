@@ -1,0 +1,10 @@
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/bin/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.deps.json
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/bin/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.runtimeconfig.json
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/bin/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.runtimeconfig.dev.json
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/bin/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.dll
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/bin/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.pdb
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/obj/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.csproj.CoreCompileInputs.cache
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/obj/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.AssemblyInfoInputs.cache
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/obj/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.AssemblyInfo.cs
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/obj/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.dll
+/home/james/Code/githubrepos/csharp-linq-vs-enumerator-benchmark/obj/Release/netcoreapp2.0/csharp-linq-vs-enumerator-benchmark.pdb
