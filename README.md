@@ -104,7 +104,7 @@ But, that's not __really__ correct:
 | TwoSingleValuedListsPiped |  10.72 ns | 0.0659 ns | 0.0550 ns |    1 | 0.0127 |      40 B |
 ```
 
-The next question we need to ask is: Is this a __linq only__ optimization? Or is it something that is really being optimized by the enumerator?
+The next question we need to ask is: Is this a __linq only__ optimization? Or is it something that is really being optimized not by linq but by - probably - the `Enumerator`?
 
 # Can we optimize a foreach?
 
