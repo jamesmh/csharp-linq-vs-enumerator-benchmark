@@ -29,7 +29,7 @@ public static IEnumerable<Tout> OptimizedPipe<T, Tout>(this IEnumerable<T> list,
 }
 ```
 
-You can use this to run only certain linq queries (`Select`, `Where`, `Except`, `Intersect`, `TypeOf`) due to the nature of the optimization.
+You can use this to run only certain linq queries (`Select`, `Where`, `Except`, `Intersect`) due to the nature of the optimization.
 
 Side Note: You can change the method above to handle non-nullable types as well... but let's keep it simple for now :)
 
