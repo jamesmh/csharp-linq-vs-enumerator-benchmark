@@ -35,11 +35,13 @@ Side Note: You can change the method above to handle non-nullable types as well.
 
 Here is that method used in the benchmark:
 
-```
- return this.numbers.OptimizedPipe(p =>
-    p.Select(x => int.Parse(x))
+```c#
+// this.numbers is a List<string> - with values like "5", "4", etc.
+
+return this.numbers.OptimizedPipe(p =>
+    p.Select(x => (int?)int.Parse(x))
     .Where(x => x > 4)
-    .Except(new int[] { 16, 18 })
+    .Except(new int?[] { 16, 18 })
 );
 ```
 
@@ -63,23 +65,25 @@ Now consider the benchmarks:
 
 ```c#
 [Benchmark]
-public IEnumerable<int> ListWithTwoValues(){
-        return this.hasTwo
-        .Select(x => int.Parse(x))
+public IEnumerable<int?> ListWithTwoValues()
+{
+    return this.hasTwo
+        .Select(x => (int?)int.Parse(x))
         .Where(x => x > 4);
 }
 
 // Vs.
 
 [Benchmark]
-public IEnumerable<int> TwoSingleValuedListsPiped(){
+public IEnumerable<int?> TwoSingleValuedListsPiped()
+{
     yield return this.one
-        .Select(x => int.Parse(x))
+        .Select(x => (int?)int.Parse(x))
         .Where(x => x > 4)
         .FirstOrDefault();
 
     yield return this.two
-        .Select(x => int.Parse(x))
+        .Select(x => (int?)int.Parse(x))
         .Where(x => x > 4)
         .FirstOrDefault();
 }
@@ -119,20 +123,21 @@ private IEnumerable<Tout> Map<T, Tout>(IEnumerable<T> list, Func<T, Tout> projec
 The two benchmarks look like this:
 
 ```c#
+
+// this.numbers is a List<string> - with values like "5", "4", etc.
+
 [Benchmark]
-public IEnumerable<string> MapFilterString()
+public IEnumerable<string> MapString()
 {
     return Map(this.numbers, n => n.ToUpper());
 }
 
 [Benchmark]
-public IEnumerable<string> MapFilterStringOptimized()
+public IEnumerable<string> MapStringOptimized()
 {
     foreach (var item in this.numbers)
     {
-        var result = Map(this.numbers, n => n.ToUpper()).FirstOrDefault();
-        if (result != null)
-            yield return item;
+        yield return Map(new string[] { item }, n => n.ToUpper()).FirstOrDefault();
     }
 }
 ```
@@ -148,9 +153,11 @@ Again, it looks like the first benchmkark should be faster. But it's not:
 
 # Conclusion
 
-So, there you have it! At run-time, c# optimizes single valued collections so you can pipe them through a chain of functions - each expecting and returning a collection. This seems to be done at a lower level - probably in the `Enumerator` class for the collections. 
+So, there you have it! At run-time, c# optimizes single valued collections so you can pipe them through a chain of functions - each expecting and returning a collection. This seems to be done at a lower level - probably in the `Enumerator` class for the collections. This needs more digging in the source code for dotnetcore...
 
-The performance gain of doing this is significant if chaining multiple methods / operations. What does this mean practically? 
+The performance gain of doing this is significant if chaining multiple methods / operations. 
+
+What does this mean practically? 
 
 - You could create functors in c# very easily without worrying about performance hits due to the nature of iterating over collections.
 

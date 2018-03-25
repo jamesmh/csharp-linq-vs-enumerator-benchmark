@@ -27,46 +27,46 @@ namespace csharp_linq_vs_enumerator_benchmark
             this.two = new List<string>() { "2" };
         }
 
-        // [Benchmark]
-        // public IEnumerable<int?> Linq()
-        // {
-        //     return this.numbers
-        //         .Select(x => (int?)int.Parse(x))
-        //         .Where(x => x > 4)
-        //         .Except(new int?[] { 16, 18 });
-        // }
+        [Benchmark]
+        public IEnumerable<int?> Linq()
+        {
+            return this.numbers
+                .Select(x => (int?)int.Parse(x))
+                .Where(x => x > 4)
+                .Except(new int?[] { 16, 18 });
+        }
 
-        // [Benchmark]
-        // public IEnumerable<int?> Optimized()
-        // {
-        //     return this.numbers.OptimizedPipe(p =>
-        //        p.Select(x => (int?)int.Parse(x))
-        //        .Where(x => x > 4)
-        //        .Except(new int?[] { 16, 18 })
-        //     );
-        // }
+        [Benchmark]
+        public IEnumerable<int?> Optimized()
+        {
+            return this.numbers.OptimizedPipe(p =>
+               p.Select(x => (int?)int.Parse(x))
+               .Where(x => x > 4)
+               .Except(new int?[] { 16, 18 })
+            );
+        }
 
-        // [Benchmark]
-        // public IEnumerable<int?> ListWithTwoValues()
-        // {
-        //     return this.hasTwo
-        //        .Select(x => (int?)int.Parse(x))
-        //        .Where(x => x > 4);
-        // }
+        [Benchmark]
+        public IEnumerable<int?> ListWithTwoValues()
+        {
+            return this.hasTwo
+               .Select(x => (int?)int.Parse(x))
+               .Where(x => x > 4);
+        }
 
-        // [Benchmark]
-        // public IEnumerable<int?> TwoSingleValuedListsPiped()
-        // {
-        //     yield return this.one
-        //         .Select(x => (int?)int.Parse(x))
-        //         .Where(x => x > 4)
-        //         .FirstOrDefault();
+        [Benchmark]
+        public IEnumerable<int?> TwoSingleValuedListsPiped()
+        {
+            yield return this.one
+                .Select(x => (int?)int.Parse(x))
+                .Where(x => x > 4)
+                .FirstOrDefault();
 
-        //     yield return this.two
-        //         .Select(x => (int?)int.Parse(x))
-        //         .Where(x => x > 4)
-        //         .FirstOrDefault();
-        // }
+            yield return this.two
+                .Select(x => (int?)int.Parse(x))
+                .Where(x => x > 4)
+                .FirstOrDefault();
+        }
 
         [Benchmark]
         public IEnumerable<string> MapString()
